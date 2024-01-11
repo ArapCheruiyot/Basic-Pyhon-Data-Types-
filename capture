@@ -1,0 +1,41 @@
+# function to capture user details
+customer_file ="Customer.txt"
+def capture_details():
+  details ={}
+  while True:
+    try:
+      names = input("Type Customer Names Here")
+      if names.lower=="exit":
+        break
+      else:
+        correct_names =names.strip().title()
+      if correct_names.replace(" ","").isalpha():
+        details["Names"]=correct_names
+        pass
+      else:
+        raise ValueError("Please Type only Alphanumerics")
+      id_no = input("Enter Customer ID Number")
+      if id_no.replace(" ","").isdigit() and len(id_no)==8:
+        details["Id"]= id_no
+        pass
+      else:
+        raise ValueError("Enter Correct ID Number")
+      mobile = input("Enter Customer Mobile Phone Number")
+      if mobile.replace(" ","").isdigit() and len(mobile)==10:
+        details["Tell"]= mobile
+        pass
+      else:
+        raise ValueError("Enter Correct Telephone Number")
+      nationality = input("Enter Customer Country of Origin")
+      if nationality.replace(" ","").isalpha():
+        details["Nationality"]= nationality
+        pass
+      else:
+        raise ValueError("Please Check Splelling and Enter Country Name Again")
+      city = input(f"Type The City of {nationality} here")
+      if city.replace(" ","").isalpha():
+        details["City"]= city
+    except ValueError as ve:
+      print(f"Error: {ve}")
+capture_details()
+        
